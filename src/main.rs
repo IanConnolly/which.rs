@@ -16,7 +16,7 @@ fn main() {
     let mut file = String::new();
 
     for arg in args.iter().skip(1) {
-        match arg.as_ref() {
+        match &arg[..] {
             "-a" => all = true,
             "-s" => bool_only = true,
             name => file.push_str(name),
