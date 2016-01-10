@@ -1,0 +1,6 @@
+[package]
+name = "which"
+version = "0.1.0"
+authors = ["Ian Connolly <ian@scribd.com>"]
+
+[dependencies]
