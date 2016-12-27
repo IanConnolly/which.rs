@@ -38,6 +38,7 @@ fn main() {
         exit(0);
     }
 
+
     if paths.is_empty() {
         println!("{} not found", file);
         exit(0);
@@ -62,8 +63,12 @@ fn paths_for_executable(executable: &str) -> Vec<String> {
 
     for directory in &directories {
         match fs::metadata(directory) {
-            Ok(meta) => if !meta.is_dir() { continue; },
-            Err(_)   => continue,
+            Ok(meta) => {
+                if !meta.is_dir() {
+                    continue;
+                }
+            }
+            Err(_) => continue,
         };
 
         let paths = fs::read_dir(directory).unwrap();
